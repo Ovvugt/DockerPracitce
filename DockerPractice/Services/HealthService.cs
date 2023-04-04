@@ -2,15 +2,16 @@
 
 public class HealthService : IHealthService
 {
-    private readonly ILogger _logger;
+    private readonly ILogger<HealthService> _logger;
 
-    public HealthService(ILogger logger)
+    public HealthService(ILogger<HealthService> logger)
     {
         _logger = logger;
     }
 
     public string GetHealth()
     {
+        _logger.LogInformation("Health check");
         return "I'm alive!";
     }
 }
